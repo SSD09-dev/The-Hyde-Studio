@@ -100,9 +100,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </p>
           </div>
 
-          <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+          <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-on-surface-variant)] transition-colors">
             <span>{t.portfolioSection.viewCaseStudy}</span>
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            <ArrowUpRight
+              className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </button>
@@ -166,7 +169,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   onClick={() => onCategoryChange(category)}
                   className={`relative min-h-[42px] px-3 py-1.5 text-xs md:text-sm font-medium rounded-[var(--radius-sm)] transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     isSelected
-                      ? 'text-[var(--hyde-ink)]'
+                      ? 'text-[var(--color-on-primary)]'
                       : 'text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]'
                   }`}
                 >
@@ -178,7 +181,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           ? { duration: 0.01 }
                           : { type: 'spring', stiffness: 420, damping: 32 }
                       }
-                      className="absolute inset-0 rounded-[var(--radius-sm)] bg-[var(--hyde-volt)] border border-[var(--hyde-ink)]/15"
+                      className="absolute inset-0 rounded-[var(--radius-sm)] bg-[var(--color-primary)] border border-[var(--color-outline-variant)]"
                     />
                   )}
                   <span className="relative z-10">

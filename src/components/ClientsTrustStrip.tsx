@@ -167,7 +167,7 @@ const getLogoImageClasses = (item: ClientLogoItem) => {
       return `${base} grayscale contrast-125 brightness-105 dark:brightness-125`;
     case 'transparent-color':
     default:
-      // HloXpat: transparent PNG -> pure black in light mode, pure crisp white in dark mode
+      // Transparent PNGs (HloXpat, VR Garage) -> pure black in light mode, pure crisp white in dark mode
       return `${base} brightness-0 contrast-200 dark:invert scale-[1.22]`;
   }
 };

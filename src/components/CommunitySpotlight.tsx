@@ -61,9 +61,9 @@ export const CommunitySpotlight: React.FC = () => {
                 ? undefined
                 : {
                     boxShadow: [
-                      '0 0 0 0 rgba(199, 243, 107, 0.28)',
-                      '0 0 0 6px rgba(199, 243, 107, 0)',
-                      '0 0 0 0 rgba(199, 243, 107, 0)',
+                      '0 0 0 0 rgba(254, 253, 249, 0.2)',
+                      '0 0 0 6px rgba(254, 253, 249, 0)',
+                      '0 0 0 0 rgba(254, 253, 249, 0)',
                     ],
                   }
             }
@@ -75,12 +75,12 @@ export const CommunitySpotlight: React.FC = () => {
                     boxShadow: { repeat: Infinity, duration: 2.8, ease: 'easeOut' },
                   }
             }
-            className="inline-block rounded-[var(--radius-full)] bg-[var(--hyde-volt)] px-3.5 py-1 text-xs font-semibold text-[var(--hyde-ink)]"
+            className="inline-block rounded-[var(--radius-full)] bg-[#FEFDF9]/10 border border-[#FEFDF9]/25 px-3.5 py-1 text-xs font-semibold text-[#FEFDF9]"
           >
             {t.communitySection.badge}
           </motion.span>
 
-          <h2 className="section-heading-type mt-4 text-white">
+          <h2 className="section-heading-type mt-4 text-[#FEFDF9]">
             {t.communitySection.headline}
           </h2>
 
@@ -88,12 +88,12 @@ export const CommunitySpotlight: React.FC = () => {
             {t.communitySection.description}
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs sm:text-sm font-medium text-[var(--hyde-volt)]">
+          <div className="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs sm:text-sm font-medium text-[var(--color-inverse-primary)]">
             {t.communitySection.audiences.map((audience, idx) => (
               <React.Fragment key={audience}>
                 <span>{audience}</span>
                 {idx < t.communitySection.audiences.length - 1 && (
-                  <span aria-hidden="true" className="text-[var(--color-inverse-outline)]">
+                  <span aria-hidden="true" className="text-[var(--color-inverse-on-surface-variant)]/50">
                     ·
                   </span>
                 )}
@@ -106,10 +106,10 @@ export const CommunitySpotlight: React.FC = () => {
         <div className="border-t border-[var(--color-inverse-outline)] py-10 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {t.communitySection.pillars.map((pillar, index) => (
             <div key={pillar.title}>
-              <span className="font-mono-tabular text-xs font-semibold text-[var(--hyde-volt)]">
+              <span className="font-mono-tabular text-xs font-semibold text-[var(--color-inverse-primary)]">
                 0{index + 1}.
               </span>
-              <h3 className="mt-2 font-heading text-lg font-semibold text-white">
+              <h3 className="mt-2 font-heading text-lg font-semibold text-[#FEFDF9]">
                 {pillar.title}
               </h3>
               <p className="mt-1.5 text-sm text-[var(--color-inverse-on-surface-variant)] leading-relaxed">
@@ -121,25 +121,25 @@ export const CommunitySpotlight: React.FC = () => {
 
         {/* Bottom Block: Early-Notify Email & Socials Action Bar */}
         <div className="border-t border-[var(--color-inverse-outline)] pt-8 md:pt-10">
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-inverse-outline)] bg-[#090909]/55 p-5 sm:p-6 md:p-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-inverse-outline)] bg-[var(--color-inverse-surface-elevated)] p-5 sm:p-6 md:p-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="w-full lg:max-w-xl">
               {submittedEmail ? (
                 <div
                   role="status"
-                  className="rounded-[var(--radius-md)] border border-[var(--hyde-volt)]/40 bg-[#344516]/45 p-4 sm:p-5"
+                  className="rounded-[var(--radius-md)] border border-[#FEFDF9]/25 bg-[#FEFDF9]/10 p-4 sm:p-5"
                 >
                   <div className="flex items-start gap-3">
                     <CheckCircle2
-                      className="h-5 w-5 shrink-0 text-[var(--hyde-volt)] mt-0.5"
+                      className="h-5 w-5 shrink-0 text-[var(--color-inverse-primary)] mt-0.5"
                       aria-hidden="true"
                     />
                     <div className="min-w-0">
-                      <p className="font-heading text-base font-semibold text-white">
+                      <p className="font-heading text-base font-semibold text-[#FEFDF9]">
                         {t.communitySection.successTitle}
                       </p>
                       <p className="mt-1 text-sm text-[var(--color-inverse-on-surface-variant)] break-words">
                         {t.communitySection.successBodyPrefix}{' '}
-                        <span className="text-white font-medium break-all">{submittedEmail}</span>
+                        <span className="text-[#FEFDF9] font-medium break-all">{submittedEmail}</span>
                       </p>
                       <button
                         type="button"
@@ -151,7 +151,7 @@ export const CommunitySpotlight: React.FC = () => {
                             // ignore
                           }
                         }}
-                        className="mt-2.5 min-h-[36px] text-xs font-semibold text-[var(--hyde-volt)] underline underline-offset-4 cursor-pointer"
+                        className="mt-2.5 min-h-[36px] text-xs font-semibold text-[var(--color-inverse-primary)] underline underline-offset-4 cursor-pointer"
                       >
                         {t.communitySection.resetWaitlist}
                       </button>
@@ -162,7 +162,7 @@ export const CommunitySpotlight: React.FC = () => {
                 <form onSubmit={handleWaitlistSubmit} noValidate className="space-y-2.5">
                   <label
                     htmlFor="community-waitlist-email"
-                    className="block text-xs font-semibold text-white/90"
+                    className="block text-xs font-semibold text-[#FEFDF9]/90"
                   >
                     {t.communitySection.emailLabel}
                   </label>
@@ -178,12 +178,12 @@ export const CommunitySpotlight: React.FC = () => {
                       placeholder={t.communitySection.emailPlaceholder}
                       required
                       aria-invalid={Boolean(errorMessage)}
-                      className="h-12 w-full sm:flex-1 rounded-[var(--radius-md)] border border-[var(--color-inverse-outline)] bg-[#090909] px-3.5 text-sm text-white placeholder:text-[#909588] focus:border-[var(--hyde-volt)] focus:outline-none"
+                      className="h-12 w-full sm:flex-1 rounded-[var(--radius-md)] border border-[var(--color-inverse-outline)] bg-[#010101] px-3.5 text-sm text-[#FEFDF9] placeholder:text-[#9E9E9A] focus:border-[var(--color-inverse-primary)] focus:outline-none"
                     />
                     <MagneticWrapper className="w-full sm:w-auto">
                       <button
                         type="submit"
-                        className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-1.5 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-6 text-sm font-semibold text-[var(--hyde-ink)] hover:bg-[#bceb5a] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                        className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-1.5 rounded-[var(--radius-md)] bg-[var(--color-inverse-primary)] px-6 text-sm font-semibold text-[var(--color-inverse-on-primary)] hover:bg-[var(--color-inverse-primary-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                       >
                         <span>{t.communitySection.submitCta}</span>
                         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -209,7 +209,7 @@ export const CommunitySpotlight: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label="Follow The Hyde Studios on LinkedIn"
                 title="LinkedIn"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-white hover:border-[var(--hyde-volt)] hover:text-[var(--hyde-volt)] transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-[#FEFDF9] hover:border-[var(--color-inverse-primary)] hover:bg-[#FEFDF9]/10 transition-colors"
               >
                 <LinkedInIcon className="h-4 w-4" />
               </a>
@@ -219,7 +219,7 @@ export const CommunitySpotlight: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label="Follow The Hyde Studios on Instagram"
                 title="Instagram"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-white hover:border-[var(--hyde-volt)] hover:text-[var(--hyde-volt)] transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-[#FEFDF9] hover:border-[var(--color-inverse-primary)] hover:bg-[#FEFDF9]/10 transition-colors"
               >
                 <InstagramIcon className="h-4 w-4" />
               </a>

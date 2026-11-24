@@ -30,10 +30,7 @@
       (function () {
         try {
           var saved = localStorage.getItem('hyde_theme');
-          var prefersDark =
-            window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = saved === 'dark' || saved === 'light' ? saved : prefersDark ? 'dark' : 'light';
+          var theme = saved === 'dark' || saved === 'light' ? saved : 'dark';
           if (theme === 'dark') {
             document.documentElement.classList.add('dark');
             document.documentElement.setAttribute('data-theme', 'dark');

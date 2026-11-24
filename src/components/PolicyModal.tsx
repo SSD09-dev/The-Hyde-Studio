@@ -47,7 +47,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
     <AnimatePresence>
       {activePolicy && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 md:p-10"
           role="dialog"
           aria-modal="true"
           aria-labelledby="policy-modal-title"
@@ -81,7 +81,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                   onClick={() => onSelectPolicy('privacy')}
                   className={`relative min-h-[34px] rounded-[var(--radius-xs)] px-3 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     activePolicy === 'privacy'
-                      ? 'text-[var(--hyde-ink)]'
+                      ? 'text-[var(--color-on-primary)]'
                       : 'text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]'
                   }`}
                 >
@@ -93,7 +93,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                           ? { duration: 0.01 }
                           : { type: 'spring', stiffness: 440, damping: 32 }
                       }
-                      className="absolute inset-0 rounded-[var(--radius-xs)] bg-[var(--hyde-volt)] border border-[var(--hyde-ink)]/15"
+                      className="absolute inset-0 rounded-[var(--radius-xs)] bg-[var(--color-primary)] border border-[var(--color-outline-variant)]"
                     />
                   )}
                   <span className="relative z-10">{t.policiesSection.privacyTab}</span>
@@ -106,7 +106,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                   onClick={() => onSelectPolicy('terms')}
                   className={`relative min-h-[34px] rounded-[var(--radius-xs)] px-3 text-xs font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     activePolicy === 'terms'
-                      ? 'text-[var(--hyde-ink)]'
+                      ? 'text-[var(--color-on-primary)]'
                       : 'text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]'
                   }`}
                 >
@@ -118,7 +118,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                           ? { duration: 0.01 }
                           : { type: 'spring', stiffness: 440, damping: 32 }
                       }
-                      className="absolute inset-0 rounded-[var(--radius-xs)] bg-[var(--hyde-volt)] border border-[var(--hyde-ink)]/15"
+                      className="absolute inset-0 rounded-[var(--radius-xs)] bg-[var(--color-primary)] border border-[var(--color-outline-variant)]"
                     />
                   )}
                   <span className="relative z-10">{t.policiesSection.termsTab}</span>

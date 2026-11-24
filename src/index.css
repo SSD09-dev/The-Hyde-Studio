@@ -4,44 +4,45 @@
 :root {
   color-scheme: light;
 
-  /* Brand Palette */
-  --hyde-ink: #090909;
+  /* Official Monochrome Brand Palette */
+  --hyde-ink: #010101;
+  --hyde-alabaster: #fefdf9;
   --hyde-white: #ffffff;
-  --hyde-volt: #c7f36b;
-  --hyde-volt-deep: #425c16;
-  --hyde-volt-soft: #eaf6c8;
 
-  /* Neutral Scale */
-  --neutral-50: #f7f8f4;
-  --neutral-100: #eceee8;
-  --neutral-200: #d8dbd1;
-  --neutral-500: #777c71;
-  --neutral-700: #575b52;
-  --neutral-900: #20221e;
+  /* Neutral Scale (Warm Alabaster to Obsidian Ink) */
+  --neutral-50: #f3f2ed;
+  --neutral-100: #ecebe5;
+  --neutral-200: #e2e1dc;
+  --neutral-500: #73736e;
+  --neutral-700: #52524e;
+  --neutral-900: #161615;
 
   /* Semantic Roles — Light Theme */
-  --color-primary: var(--hyde-volt-deep);
-  --color-on-primary: var(--hyde-white);
-  --color-primary-container: var(--hyde-volt-soft);
-  --color-on-primary-container: var(--neutral-900);
+  --color-primary: var(--hyde-ink);
+  --color-on-primary: var(--hyde-alabaster);
+  --color-primary-hover: #262624;
+  --color-primary-container: rgb(1 1 1 / 0.1);
+  --color-on-primary-container: var(--hyde-ink);
   --color-secondary: var(--neutral-700);
-  --color-on-secondary: var(--hyde-white);
-  --color-background: var(--hyde-white);
+  --color-on-secondary: var(--hyde-alabaster);
+  --color-background: var(--hyde-alabaster);
   --color-surface: var(--hyde-white);
   --color-surface-container-low: var(--neutral-50);
   --color-surface-container: var(--neutral-100);
-  --color-surface-container-high: #e2e5dc;
+  --color-surface-container-high: var(--neutral-200);
   --color-on-surface: var(--hyde-ink);
   --color-on-surface-variant: var(--neutral-700);
   --color-outline: var(--neutral-500);
   --color-outline-variant: var(--neutral-200);
   --color-inverse-surface: var(--hyde-ink);
-  --color-inverse-surface-elevated: #171817;
-  --color-inverse-surface-high: #242622;
-  --color-inverse-on-surface: var(--hyde-white);
-  --color-inverse-on-surface-variant: #bfc2b7;
-  --color-inverse-outline: #44483f;
-  --color-inverse-primary: var(--hyde-volt);
+  --color-inverse-surface-elevated: #111110;
+  --color-inverse-surface-high: #161615;
+  --color-inverse-on-surface: var(--hyde-alabaster);
+  --color-inverse-on-surface-variant: #9e9e9a;
+  --color-inverse-outline: #262624;
+  --color-inverse-primary: var(--hyde-alabaster);
+  --color-inverse-on-primary: var(--hyde-ink);
+  --color-inverse-primary-hover: #e8e6df;
   --color-error: #b3261e;
 
   /* Typography with Multilingual Indic Script Stack */
@@ -65,14 +66,14 @@
   --page-gutter: clamp(1rem, 3.5vw, 3rem);
 
   /* Elevation */
-  --shadow-card: 0 1px 2px rgb(9 9 9 / 0.04), 0 12px 32px rgb(9 9 9 / 0.04);
-  --shadow-menu: 0 12px 36px rgb(9 9 9 / 0.12);
+  --shadow-card: 0 1px 2px rgb(1 1 1 / 0.04), 0 12px 32px rgb(1 1 1 / 0.04);
+  --shadow-menu: 0 12px 36px rgb(1 1 1 / 0.12);
 
   /* Motion */
   --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Focus */
-  --focus-ring: 2px solid var(--hyde-volt-deep);
+  --focus-ring: 2px solid var(--color-primary);
   --focus-offset: 3px;
 }
 
@@ -80,33 +81,36 @@
 :root.dark {
   color-scheme: dark;
 
-  --color-primary: var(--hyde-volt);
+  --color-primary: var(--hyde-alabaster);
   --color-on-primary: var(--hyde-ink);
-  --color-primary-container: #344516;
-  --color-on-primary-container: var(--hyde-volt-soft);
-  --color-secondary: #bfc2b7;
-  --color-on-secondary: #171817;
-  --color-background: #090909;
-  --color-surface: #111210;
-  --color-surface-container-low: #171817;
-  --color-surface-container: #20221e;
-  --color-surface-container-high: #292b26;
-  --color-on-surface: var(--hyde-white);
-  --color-on-surface-variant: #bfc2b7;
-  --color-outline: #909588;
-  --color-outline-variant: #44483f;
-  --color-inverse-surface: #141513;
-  --color-inverse-surface-elevated: #1c1e1a;
-  --color-inverse-surface-high: #262823;
-  --color-inverse-on-surface: var(--hyde-white);
-  --color-inverse-on-surface-variant: #c9ccc2;
-  --color-inverse-outline: #44483f;
-  --color-inverse-primary: var(--hyde-volt);
+  --color-primary-hover: #e8e6df;
+  --color-primary-container: rgb(254 253 249 / 0.1);
+  --color-on-primary-container: var(--hyde-alabaster);
+  --color-secondary: #9e9e9a;
+  --color-on-secondary: #161615;
+  --color-background: var(--hyde-ink);
+  --color-surface: #111110;
+  --color-surface-container-low: #161615;
+  --color-surface-container: #1c1c1a;
+  --color-surface-container-high: #262624;
+  --color-on-surface: var(--hyde-alabaster);
+  --color-on-surface-variant: #9e9e9a;
+  --color-outline: #70706b;
+  --color-outline-variant: #262624;
+  --color-inverse-surface: #0b0b0a;
+  --color-inverse-surface-elevated: #111110;
+  --color-inverse-surface-high: #161615;
+  --color-inverse-on-surface: var(--hyde-alabaster);
+  --color-inverse-on-surface-variant: #9e9e9a;
+  --color-inverse-outline: #262624;
+  --color-inverse-primary: var(--hyde-alabaster);
+  --color-inverse-on-primary: var(--hyde-ink);
+  --color-inverse-primary-hover: #e8e6df;
   --color-error: #ffb4ab;
 
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.25), 0 16px 40px rgb(0 0 0 / 0.22);
-  --shadow-menu: 0 12px 36px rgb(0 0 0 / 0.45);
-  --focus-ring: 2px solid var(--hyde-volt);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px rgb(0 0 0 / 0.28);
+  --shadow-menu: 0 12px 36px rgb(0 0 0 / 0.5);
+  --focus-ring: 2px solid var(--color-primary);
 }
 
 @layer base {
@@ -124,7 +128,6 @@
     line-height: 1.62;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    overflow-x: clip;
     transition: background-color 180ms ease, color 180ms ease;
   }
 
@@ -137,8 +140,8 @@
   }
 
   ::selection {
-    color: var(--hyde-ink);
-    background-color: var(--hyde-volt);
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
   }
 
   :focus-visible {
@@ -241,8 +244,8 @@
   z-index: 100;
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-md);
-  background: var(--hyde-volt);
-  color: var(--hyde-ink);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   font-weight: 700;
   font-size: 0.875rem;
   box-shadow: var(--shadow-menu);

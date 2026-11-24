@@ -111,8 +111,8 @@ export const SpotlightBentoCard: React.FC<SpotlightBentoCardProps> = ({
           style={{
             opacity: coords.active ? 1 : 0,
             background: darkSurface
-              ? `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, rgba(199, 243, 107, 0.12), transparent 65%)`
-              : `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, rgba(199, 243, 107, 0.24), transparent 65%)`,
+              ? `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, rgba(254, 253, 249, 0.08), transparent 65%)`
+              : `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, rgba(1, 1, 1, 0.05), transparent 65%)`,
           }}
         />
       )}
@@ -152,7 +152,7 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
         role="img"
         aria-label={alt}
       >
-        <div className="h-3 w-3 rounded-xs bg-[var(--hyde-volt)] mb-3" aria-hidden="true" />
+        <div className="h-3 w-3 rounded-xs bg-[var(--color-primary)] mb-3" aria-hidden="true" />
         <p className="font-heading text-sm font-semibold text-[var(--color-on-surface)]">
           {title || 'The Hyde Studios'}
         </p>

@@ -44,7 +44,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
     <AnimatePresence>
       {project && localized && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 md:p-10"
           role="dialog"
           aria-modal="true"
           aria-labelledby="case-study-modal-title"
@@ -164,7 +164,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                 <button
                   type="button"
                   onClick={() => onStartSimilarProject(project)}
-                  className="inline-flex min-h-[44px] items-center gap-2 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-5 text-sm font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 hover:bg-[#bceb5a] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                 >
                   <span>{t.portfolioSection.modal.startSimilarCta}</span>
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

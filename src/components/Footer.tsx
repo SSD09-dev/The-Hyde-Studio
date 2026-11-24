@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
   ];
 
   return (
-    <footer className="bg-[var(--hyde-ink)] text-white border-t border-[var(--color-inverse-outline)]">
+    <footer className="bg-[var(--color-inverse-surface)] text-[#FEFDF9] border-t border-[var(--color-inverse-outline)]">
       <div className="container-hyde py-12">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 border-b border-[var(--color-inverse-outline)]">
           <div className="space-y-3">
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
                 rel="noopener noreferrer"
                 aria-label={`The Hyde Studios on ${item.label}`}
                 title={item.label}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-white hover:border-[var(--hyde-volt)] hover:text-[var(--hyde-volt)] transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-inverse-outline)] text-[#FEFDF9] hover:border-[var(--color-inverse-primary)] hover:bg-[#FEFDF9]/10 transition-colors"
               >
                 {item.icon}
               </a>

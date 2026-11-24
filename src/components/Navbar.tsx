@@ -35,7 +35,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
   ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 18);
+    const onScroll = () => {
+      const y = Math.max(
+        window.scrollY || 0,
+        document.documentElement.scrollTop || 0,
+        document.body.scrollTop || 0
+      );
+      setScrolled(y > 12);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -75,10 +82,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-colors duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transform-gpu [backface-visibility:hidden] backdrop-blur-xl backdrop-saturate-150 transition-colors duration-200 ${
         scrolled
-          ? 'bg-white/92 dark:bg-[#090909]/92 backdrop-blur-md border-b border-[var(--color-outline-variant)]'
-          : 'bg-[var(--color-background)] border-b border-transparent'
+          ? 'bg-[#FEFDF9]/72 dark:bg-[#010101]/68 border-b border-[#010101]/10 dark:border-[#FEFDF9]/12 shadow-[0_8px_30px_rgb(1_1_1/0.06)] dark:shadow-[0_8px_30px_rgb(0_0_0/0.35)]'
+          : 'bg-[#FEFDF9]/58 dark:bg-[#010101]/52 border-b border-transparent'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center h-16 sm:h-20 gap-2 sm:gap-4">
@@ -86,6 +93,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
         <div className="flex items-center justify-self-start shrink-0">
           <a
             href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              setMobileOpen(false);
+              window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            }}
             aria-label="The Hyde Studios Home"
             className="inline-flex items-center shrink-0 py-1.5 rounded-[var(--radius-sm)]"
           >
@@ -164,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
                           }}
                           className={`flex min-h-[40px] w-full items-center justify-between rounded-[var(--radius-xs)] px-3 text-left text-xs font-medium transition-colors cursor-pointer ${
                             selected
-                              ? 'bg-[var(--hyde-volt)] text-[var(--hyde-ink)] font-semibold'
+                              ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] font-semibold'
                               : 'text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-low)]'
                           }`}
                         >
@@ -190,7 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
             className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] bg-transparent text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-low)] transition-colors shrink-0 cursor-pointer"
           >
             {theme === 'dark' ? (
-              <Sun className="h-[18px] w-[18px] text-[var(--hyde-volt)]" aria-hidden="true" />
+              <Sun className="h-[18px] w-[18px] text-[var(--color-primary)]" aria-hidden="true" />
             ) : (
               <Moon className="h-[18px] w-[18px]" aria-hidden="true" />
             )}
@@ -202,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
               <button
                 type="button"
                 onClick={onStartProject}
-                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-4 text-xs xl:text-sm font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 hover:bg-[#bceb5a] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-xs xl:text-sm font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <span>{t.nav.startProject}</span>
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -233,7 +245,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden border-t border-[var(--color-outline-variant)] bg-[var(--color-background)] px-4 sm:px-6 pb-6 pt-3 shadow-[var(--shadow-menu)]"
+            className="lg:hidden max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[#010101]/10 dark:border-[#FEFDF9]/12 bg-[#FEFDF9]/88 dark:bg-[#010101]/88 backdrop-blur-xl backdrop-saturate-150 px-4 sm:px-6 pb-6 pt-3 shadow-[var(--shadow-menu)]"
           >
             <nav aria-label="Mobile Navigation" className="flex flex-col gap-1">
               {localizedNavLinks.map((link) => (
@@ -256,7 +268,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
                   setMobileOpen(false);
                   onStartProject();
                 }}
-                className="inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-5 text-sm font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 cursor-pointer"
+                className="inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors cursor-pointer"
               >
                 <span>{t.nav.startProject}</span>
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

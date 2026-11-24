@@ -2,5 +2,7 @@
   "name": "The Hyde Studios",
   "description": "Independent creative and tech studio — product development, UI/UX design, brand visuals, digital marketing, and our upcoming tech career community.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

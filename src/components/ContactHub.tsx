@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowUpRight, CheckCircle2, Mail, MessageSquare, Phone } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, ChevronDown, Mail, MessageSquare, Phone } from 'lucide-react';
 import { ServiceId, siteConfig } from '../config/siteConfig';
 import { usePreferences } from '../context/PreferencesContext';
 import { translations } from '../i18n/translations';
@@ -113,7 +113,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                 <Mail className="h-4 w-4 text-[var(--color-primary)] shrink-0" aria-hidden="true" />
                 <a
                   href={`mailto:${siteConfig.CONTACT_EMAIL}`}
-                  className="font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] underline underline-offset-4 break-all"
+                  className="font-medium text-[var(--color-on-surface)] hover:opacity-75 transition-opacity break-all"
                 >
                   {siteConfig.CONTACT_EMAIL}
                 </a>
@@ -123,7 +123,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                 <Phone className="h-4 w-4 text-[var(--color-primary)] shrink-0" aria-hidden="true" />
                 <a
                   href={`tel:${siteConfig.CONTACT_PHONE.replace(/\s+/g, '')}`}
-                  className="font-mono-tabular font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)]"
+                  className="font-mono-tabular font-medium text-[var(--color-on-surface)] hover:opacity-75 transition-opacity"
                 >
                   {siteConfig.CONTACT_PHONE}
                 </a>
@@ -139,7 +139,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                     href={`https://wa.me/${siteConfig.WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] underline underline-offset-4"
+                    className="font-medium text-[var(--color-on-surface)] hover:opacity-75 transition-opacity underline underline-offset-4"
                   >
                     {t.contactSection.whatsappCta}
                   </a>
@@ -177,7 +177,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
             <div className="rounded-[var(--radius-lg)] border border-[var(--color-outline-variant)] bg-[var(--color-surface-container-low)] p-6 md:p-8">
               {submittedData ? (
                 <div role="status" className="py-4 space-y-5">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--hyde-volt)] text-[var(--hyde-ink)]">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-on-primary)]">
                     <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
                   </div>
 
@@ -194,7 +194,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                     </p>
                   </div>
 
-                  <div className="rounded-[var(--radius-md)] border border-[var(--color-outline-variant)] bg-[var(--color-surface)] p-4 text-sm space-y-1.5">
+                  <div className="rounded-[var(--radius-md)] border border-[var(--color-outline-variant)] bg-[var(--color-surface)] p-4 text-sm space-y-2">
                     <p>
                       <span className="font-semibold text-[var(--color-on-surface)]">
                         {t.contactSection.form.replyToLabel}{' '}
@@ -211,12 +211,28 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                         {submittedData.brief}
                       </span>
                     </p>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-[var(--color-outline-variant)] pt-2.5 text-xs">
+                      <a
+                        href={`mailto:${siteConfig.CONTACT_EMAIL}`}
+                        className="inline-flex items-center gap-1.5 font-medium text-[var(--color-on-surface)] hover:opacity-75 transition-opacity break-all"
+                      >
+                        <Mail className="h-3.5 w-3.5 text-[var(--color-primary)] shrink-0" aria-hidden="true" />
+                        <span>{siteConfig.CONTACT_EMAIL}</span>
+                      </a>
+                      <a
+                        href={`tel:${siteConfig.CONTACT_PHONE.replace(/\s+/g, '')}`}
+                        className="inline-flex items-center gap-1.5 font-mono-tabular font-medium text-[var(--color-on-surface)] hover:opacity-75 transition-opacity whitespace-nowrap"
+                      >
+                        <Phone className="h-3.5 w-3.5 text-[var(--color-primary)] shrink-0" aria-hidden="true" />
+                        <span>{siteConfig.CONTACT_PHONE}</span>
+                      </a>
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3">
                     <a
                       href={buildMailtoHref(submittedData)}
-                      className="inline-flex min-h-[46px] items-center gap-2 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-5 text-sm font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 hover:bg-[#bceb5a] transition-colors"
+                      className="inline-flex min-h-[46px] items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors"
                     >
                       <span>{t.contactSection.form.openEmailCta}</span>
                       <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -311,27 +327,33 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                     >
                       {t.contactSection.form.serviceLabel}
                     </label>
-                    <select
-                      id="inquiry-service"
-                      value={form.service}
-                      onChange={(e) => {
-                        setForm((prev) => ({
-                          ...prev,
-                          service: e.target.value as ServiceId | '',
-                        }));
-                        if (errors.service) setErrors((prev) => ({ ...prev, service: undefined }));
-                      }}
-                      required
-                      aria-invalid={Boolean(errors.service)}
-                      className="h-12 w-full rounded-[var(--radius-sm)] border border-[var(--color-outline-variant)] bg-[var(--color-surface)] px-3.5 text-sm text-[var(--color-on-surface)] focus:border-[var(--color-primary)] focus:outline-none"
-                    >
-                      <option value="">{t.contactSection.form.servicePlaceholder}</option>
-                      {siteConfig.services.map((service) => (
-                        <option key={service.id} value={service.id}>
-                          {t.servicesSection.items[service.id].title}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="inquiry-service"
+                        value={form.service}
+                        onChange={(e) => {
+                          setForm((prev) => ({
+                            ...prev,
+                            service: e.target.value as ServiceId | '',
+                          }));
+                          if (errors.service) setErrors((prev) => ({ ...prev, service: undefined }));
+                        }}
+                        required
+                        aria-invalid={Boolean(errors.service)}
+                        className="h-12 w-full appearance-none rounded-[var(--radius-sm)] border border-[var(--color-outline-variant)] bg-[var(--color-surface)] pl-3.5 pr-10 text-sm text-[var(--color-on-surface)] focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
+                      >
+                        <option value="">{t.contactSection.form.servicePlaceholder}</option>
+                        {siteConfig.services.map((service) => (
+                          <option key={service.id} value={service.id}>
+                            {t.servicesSection.items[service.id].title}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--color-on-surface-variant)]"
+                        aria-hidden="true"
+                      />
+                    </div>
                     {errors.service && (
                       <p
                         role="alert"
@@ -383,7 +405,7 @@ export const ContactHub: React.FC<ContactHubProps> = ({
                     <MagneticWrapper className="w-full sm:w-auto">
                       <button
                         type="submit"
-                        className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-6 text-sm font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 hover:bg-[#bceb5a] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                        className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-6 text-sm font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                       >
                         <span>{t.contactSection.form.submitCta}</span>
                         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

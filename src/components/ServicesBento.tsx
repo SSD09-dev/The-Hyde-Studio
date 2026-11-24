@@ -14,20 +14,16 @@ export const ServicesBento: React.FC = () => {
       className="py-16 md:py-22 bg-[var(--color-surface-container-low)] border-b border-[var(--color-outline-variant)]"
     >
       <div className="container-hyde">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-10 md:mb-12">
-          <div className="lg:col-span-7">
-            <p className="text-xs font-semibold tracking-[0.04em] text-[var(--color-primary)]">
-              {t.servicesSection.eyebrow}
-            </p>
-            <h2 className="section-heading-type mt-2 text-[var(--color-on-surface)]">
-              {t.servicesSection.heading}
-            </h2>
-          </div>
-          <div className="lg:col-span-5">
-            <p className="text-base text-[var(--color-on-surface-variant)] max-w-[48ch]">
-              {t.servicesSection.subheading}
-            </p>
-          </div>
+        <div className="max-w-2xl mb-10 md:mb-12">
+          <p className="text-xs font-semibold tracking-[0.04em] text-[var(--color-primary)]">
+            {t.servicesSection.eyebrow}
+          </p>
+          <h2 className="section-heading-type mt-2 text-[var(--color-on-surface)]">
+            {t.servicesSection.heading}
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-[54ch]">
+            {t.servicesSection.subheading}
+          </p>
         </div>
 
         {/* Responsive Bento Grid: 1-col mobile, 2-col tablet, asymmetric Bento desktop */}

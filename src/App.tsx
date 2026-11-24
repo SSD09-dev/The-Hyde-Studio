@@ -55,41 +55,43 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[var(--color-background)] text-[var(--color-on-surface)]">
+    <>
       <a href="#main-content" className="skip-to-content">
         {t.a11y.skipToContent}
       </a>
 
       <Navbar onStartProject={handleStartProject} />
 
-      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
-        <HeroSection
-          onStartProject={handleStartProject}
-          onExploreWork={handleExploreWork}
-        />
+      <div className="min-h-screen w-full overflow-x-clip flex flex-col bg-[var(--color-background)] text-[var(--color-on-surface)] pt-16 sm:pt-20">
+        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+          <HeroSection
+            onStartProject={handleStartProject}
+            onExploreWork={handleExploreWork}
+          />
 
-        <ClientsTrustStrip />
+          <ClientsTrustStrip />
 
-        <PortfolioSection
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-          onOpenProject={setSelectedProject}
-        />
+          <PortfolioSection
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+            onOpenProject={setSelectedProject}
+          />
 
-        <ServicesBento />
+          <ServicesBento />
 
-        <HowWeWorkSection />
+          <HowWeWorkSection />
 
-        <CommunitySpotlight />
+          <CommunitySpotlight />
 
-        <ContactHub
-          preselectedService={inquiryService}
-          prefilledBriefNote={inquiryBriefNote}
-          onOpenPrivacyPolicy={() => setActivePolicy('privacy')}
-        />
-      </main>
+          <ContactHub
+            preselectedService={inquiryService}
+            prefilledBriefNote={inquiryBriefNote}
+            onOpenPrivacyPolicy={() => setActivePolicy('privacy')}
+          />
+        </main>
 
-      <Footer onOpenPolicy={setActivePolicy} />
+        <Footer onOpenPolicy={setActivePolicy} />
+      </div>
 
       <CaseStudyModal
         project={selectedProject}
@@ -102,6 +104,6 @@ export default function App() {
         onSelectPolicy={setActivePolicy}
         onClose={() => setActivePolicy(null)}
       />
-    </div>
+    </>
   );
 }

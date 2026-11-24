@@ -65,10 +65,10 @@ export const siteConfig = {
   tagline: 'Create fearlessly, build for the future.',
   operatingSince: '2025',
 
-  // Editable Contact Placeholders — drop in official details anytime
-  CONTACT_EMAIL: 'hello@thehydestudios.com',
-  CONTACT_PHONE: '+91 00000 00000',
-  WHATSAPP_NUMBER: '', // e.g. "919876543210" when ready
+  // Official Business Contact Details
+  CONTACT_EMAIL: 'info@thehydestudios.com',
+  CONTACT_PHONE: '+91 9618022720',
+  WHATSAPP_NUMBER: '', // Optional WhatsApp number without "+" when active
 
   SOCIAL_LINKS: {
     linkedin: 'https://linkedin.com',
@@ -115,8 +115,8 @@ export const siteConfig = {
       id: 'vr-garage',
       name: 'VR Garage',
       kind: 'image',
-      src: '/assets/aistudio/image_59fe1e3e.png',
-      toneMode: 'opaque-badge',
+      src: '/assets/aistudio/image-removebg-preview__29__3ecc29b2.png',
+      toneMode: 'transparent-color',
     },
     {
       id: 'hloxpat',
@@ -319,7 +319,7 @@ export const siteConfig = {
       challenge:
         'The client needed a physical and digital identity that felt architectural and timeless without relying on expensive multi-ink print runs.',
       approach:
-        'Built a disciplined two-tone black and off-white identity anchored by blind-embossed emblems, sharp geometric typography, and a single volt-green accent cue.',
+        'Built a disciplined two-tone black and off-white identity anchored by blind-embossed emblems, sharp geometric typography, and crisp alabaster tonal contrast.',
       outcome:
         'Rolled out across client packaging, studio stationery, and launch collateral for their flagship product line.',
       deliverables: [

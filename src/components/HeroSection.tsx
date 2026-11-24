@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 type="button"
                 onClick={onStartProject}
-                className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--hyde-volt)] px-6 py-2.5 text-sm md:text-base font-semibold text-[var(--hyde-ink)] border border-[var(--hyde-ink)]/15 hover:bg-[#bceb5a] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-6 py-2.5 text-sm md:text-base font-semibold text-[var(--color-on-primary)] border border-[var(--color-outline-variant)] hover:bg-[var(--color-primary-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <span>{t.hero.primaryCta}</span>
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <button
               type="button"
               onClick={onExploreWork}
-              className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center px-3 text-sm md:text-base font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center px-3 text-sm md:text-base font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-on-surface-variant)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <span>{t.hero.secondaryCta}</span>
             </button>
