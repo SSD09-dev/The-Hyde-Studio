@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "brand": "The Hyde Studio",
+    "version": "1.0",
+    "approach": "Material 3-informed semantic theme adapted for a marketing website; not an official Google theme export",
+    "accent": "Hyde Volt",
+    "accentHex": "#C7F36B"
+  },
+  "sourceColors": {
+    "brandAccent": "#C7F36B",
+    "brandAccentDeep": "#425C16",
+    "ink": "#090909",
+    "white": "#FFFFFF"
+  },
+  "light": {
+    "primary": "#425C16",
+    "onPrimary": "#FFFFFF",
+    "primaryContainer": "#EAF6C8",
+    "onPrimaryContainer": "#20221E",
+    "secondary": "#575B52",
+    "onSecondary": "#FFFFFF",
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "surfaceContainerLow": "#F7F8F4",
+    "surfaceContainer": "#ECEEE8",
+    "surfaceContainerHigh": "#E2E5DC",
+    "onSurface": "#090909",
+    "onSurfaceVariant": "#575B52",
+    "outline": "#777C71",
+    "outlineVariant": "#D8DBD1",
+    "inverseSurface": "#20221E",
+    "inverseOnSurface": "#FFFFFF",
+    "inversePrimary": "#C7F36B"
+  },
+  "dark": {
+    "primary": "#C7F36B",
+    "onPrimary": "#090909",
+    "primaryContainer": "#344516",
+    "onPrimaryContainer": "#EAF6C8",
+    "secondary": "#BFC2B7",
+    "onSecondary": "#171817",
+    "background": "#090909",
+    "surface": "#111210",
+    "surfaceContainerLow": "#171817",
+    "surfaceContainer": "#20221E",
+    "surfaceContainerHigh": "#292B26",
+    "onSurface": "#FFFFFF",
+    "onSurfaceVariant": "#BFC2B7",
+    "outline": "#909588",
+    "outlineVariant": "#44483F",
+    "inverseSurface": "#F7F8F4",
+    "inverseOnSurface": "#090909",
+    "inversePrimary": "#425C16"
+  },
+  "brandNeutrals": {
+    "neutral50": "#F7F8F4",
+    "neutral100": "#ECEEE8",
+    "neutral200": "#D8DBD1",
+    "neutral500": "#777C71",
+    "neutral700": "#575B52",
+    "neutral900": "#20221E"
+  },
+  "accessibility": {
+    "target": "WCAG 2.2 AA",
+    "normalTextContrastMinimum": "4.5:1",
+    "largeTextContrastMinimum": "3:1",
+    "note": "Do not use white text on #C7F36B or small #C7F36B text on white. Use black on the accent, or #425C16 for text on white. Verify all rendered states."
+  }
+}
